@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <!-- Navegación dinámica -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h2>Panel de Administración</h2>
+            
+            <!-- Estadísticas -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); text-align: center;">
+                    <h3>Productos</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--primary-color);" id="total-products">0</p>
+                </div>
+                
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); text-align: center;">
+                    <h3>Pedidos</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--success-color);" id="total-orders">0</p>
+                </div>
+                
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); text-align: center;">
+                    <h3>Usuarios</h3>
+                    <p style="font-size: 2rem; font-weight: bold; color: var(--info-color);" id="total-users">0</p>
+                </div>
+            </div>
+
+            <!-- Navegación de administración -->
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button onclick="showSection('dashboard')" class="btn btn-outline">Dashboard</button>
+                    <button onclick="showSection('products')" class="btn btn-outline">Gestión de Productos</button>
+                    <button onclick="showSection('orders')" class="btn btn-outline">Gestión de Pedidos</button>
+                    <button onclick="showSection('users')" class="btn btn-outline">Gestión de Usuarios</button>
+                </div>
+            </div>
+
+            <!-- Contenido dinámico -->
+            <div id="admin-content">
+                <!-- Dashboard -->
+                <div id="dashboard-section">
+                    <h3>Pedidos Recientes</h3>
+                    <div id="recent-orders">
+                        <!-- Pedidos cargados dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Gestión de productos -->
+                <div id="products-section" style="display: none;">
+                    <div id="products-management">
+                        <!-- Productos cargados dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Gestión de pedidos -->
+                <div id="orders-section" style="display: none;">
+                    <p style="text-align: center; color: var(--secondary-color); padding: 2rem;">
+                        Módulo de pedidos en desarrollo...
+                    </p>
+                </div>
+
+                <!-- Gestión de usuarios -->
+                <div id="users-section" style="display: none;">
+                    <p style="text-align: center; color: var(--secondary-color); padding: 2rem;">
+                        Módulo de usuarios en desarrollo...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadNavigation();
+            await loadAdminDashboard();
+            await loadProductsManagement();
+        });
+
+        function showSection(section) {
+            // Ocultar todas las secciones
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('orders-section').style.display = 'none';
+            document.getElementById('users-section').style.display = 'none';
+
+            // Mostrar la sección seleccionada
+            document.getElementById(section + '-section').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

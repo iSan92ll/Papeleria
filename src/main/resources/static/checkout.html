@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <!-- Navegación dinámica -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h2>Finalizar Compra</h2>
+            
+            <div class="checkout-container">
+                <div>
+                    <!-- Direcciones -->
+                    <div id="addresses-container" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 2rem;">
+                        <!-- Direcciones cargadas dinámicamente -->
+                    </div>
+
+                    <!-- Método de pago -->
+                    <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow);">
+                        <h3>Método de Pago</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                            <button onclick="processPayment('efectivo')" class="btn btn-outline" style="padding: 1rem; text-align: center;">
+                                <h4>Pago en Efectivo</h4>
+                                <p>Paga al momento de la entrega</p>
+                            </button>
+                            
+                            <button onclick="processPayment('mercadopago')" class="btn btn-outline" style="padding: 1rem; text-align: center;">
+                                <h4>MercadoPago</h4>
+                                <p>Pago seguro en línea</p>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen del pedido -->
+                <div>
+                    <div id="order-summary" style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); position: sticky; top: 100px;">
+                        <!-- Resumen cargado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/checkout.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadNavigation();
+            await loadCheckout();
+        });
+    </script>
+</body>
+</html>

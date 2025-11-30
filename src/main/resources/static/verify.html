@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Cuenta - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Inicio</a>
+                    <a href="login.html">Iniciar Sesión</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="form-container">
+                <h2>Verificando tu cuenta...</h2>
+                <div id="verification-status">
+                    <p>Procesando verificación...</p>
+                </div>
+                
+                <div id="resend-section" style="display: none; text-align: center; margin-top: 2rem;">
+                    <p>¿No recibiste el correo?</p>
+                    <button onclick="resendVerification()" class="btn btn-outline">Reenviar verificación</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMLoaded', function() {
+            verifyAccount();
+        });
+        
+        // También ejecutar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            verifyAccount();
+        });
+    </script>
+</body>
+</html>

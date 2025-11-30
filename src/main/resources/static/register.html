@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav">
+                    <a href="index.html">Inicio</a>
+                    <a href="catalog.html">Catálogo</a>
+                    <a href="login.html">Iniciar Sesión</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="form-container">
+                <h2>Crear Cuenta</h2>
+                <form onsubmit="register(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" id="apellido" name="apellido" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contra">Contraseña:</label>
+                        <input type="password" id="contra" name="contra" required minlength="6">
+                        <small>Mínimo 6 caracteres</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmarContra">Confirmar Contraseña:</label>
+                        <input type="password" id="confirmarContra" name="confirmarContra" required>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-block">Registrarse</button>
+                    </div>
+                </form>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initPhoneInput();
+        });
+    </script>
+</body>
+</html>

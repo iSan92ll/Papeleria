@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Pedido - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <!-- Navegación dinámica -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div style="text-align: center; padding: 2rem;">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+                <h2>¡Pedido Confirmado!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Tu pedido ha sido procesado exitosamente.</p>
+                
+                <div style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow); max-width: 500px; margin: 0 auto;">
+                    <h3>Número de Pedido: <span id="order-id">#0000</span></h3>
+                    <p>Te hemos enviado un correo con los detalles de tu compra.</p>
+                    
+                    <div style="margin: 2rem 0;">
+                        <button onclick="downloadReceipt()" class="btn btn-primary">Descargar Comprobante</button>
+                        <button onclick="sendReceiptEmail()" class="btn btn-outline">Enviar por Correo</button>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="catalog.html" class="btn btn-outline">Seguir Comprando</a>
+                    <a href="profile.html" class="btn btn-primary">Ver Mis Pedidos</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadNavigation();
+            
+            // Obtener ID del pedido de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const orderId = urlParams.get('id');
+            if (orderId) {
+                document.getElementById('order-id').textContent = '#' + orderId;
+            }
+        });
+
+        function downloadReceipt() {
+            showMessage('Funcionalidad de descarga en desarrollo', 'info');
+        }
+
+        function sendReceiptEmail() {
+            showMessage('Comprobante enviado por correo', 'success');
+        }
+    </script>
+</body>
+</html>

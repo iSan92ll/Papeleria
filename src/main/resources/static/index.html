@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <!-- La navegación se carga dinámicamente -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h2>Bienvenido a nuestra papelería</h2>
+                <p>Encuentra todo lo que necesitas para oficina, escuela y más</p>
+                <div class="hero-actions">
+                    <a href="catalog.html" class="btn btn-primary">Ver Catálogo</a>
+                    <a href="register.html" class="btn btn-secondary">Registrarse</a>
+                </div>
+            </div>
+
+            <section class="featured-products">
+                <h3>Productos Destacados</h3>
+                <div id="featured-products" class="products-grid">
+                    <!-- Productos cargados dinámicamente -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/products.js"></script>
+    <script>
+        // Cargar navegación y productos destacados
+        document.addEventListener('DOMContentLoaded', async () => {
+            await loadNavigation();
+            await loadFeaturedProducts();
+        });
+    </script>
+</body>
+</html>

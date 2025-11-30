@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Papelería Online</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1><a href="index.html">Papelería Online</a></h1>
+                </div>
+                <nav class="nav" id="main-nav">
+                    <!-- Navegación dinámica -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <h2>Mi Perfil</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Información del usuario -->
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow);">
+                    <h3>Información Personal</h3>
+                    <div id="user-info">
+                        <!-- Información cargada dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Mis pedidos -->
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow);">
+                    <h3>Mis Pedidos Recientes</h3>
+                    <div id="user-orders">
+                        <!-- Pedidos cargados dinámicamente -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direcciones -->
+            <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: var(--shadow); margin-top: 2rem;">
+                <h3>Mis Direcciones</h3>
+                <div id="user-addresses">
+                    <!-- Direcciones cargadas dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Papelería Online. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            await loadNavigation();
+            await loadUserProfile();
+        });
+
+        async function loadUserProfile() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Cargar información del usuario
+            document.getElementById('user-info').innerHTML = `
+                <p><strong>Nombre:</strong> ${user.nombre} ${user.apellido}</p>
+                <p><strong>Email:</strong> ${user.correo}</p>
+                <p><strong>Teléfono:</strong> ${user.telefono}</p>
+                <p><strong>Estado:</strong> ${user.verificado ? 'Verificado' : 'No verificado'}</p>
+                ${!user.verificado ? '<button onclick="resendVerification()" class="btn btn-outline">Reenviar verificación</button>' : ''}
+            `;
+
+            // Cargar pedidos (simulado)
+            document.getElementById('user-orders').innerHTML = `
+                <p style="text-align: center; color: var(--secondary-color); padding: 2rem;">
+                    Funcionalidad en desarrollo...
+                </p>
+            `;
+
+            // Cargar direcciones (simulado)
+            document.getElementById('user-addresses').innerHTML = `
+                <p style="text-align: center; color: var(--secondary-color); padding: 2rem;">
+                    Funcionalidad en desarrollo...
+                </p>
+            `;
+        }
+    </script>
+</body>
+</html>
